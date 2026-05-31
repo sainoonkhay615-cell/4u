@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+#message{
+    color:white;
+    font-size:60px;
+    font-weight:bold;
+    text-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:25px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="message"></div>
+
+<script>
+
+const girlfriendName = "Theint TShin Zar Win";
+const msg = document.getElementById("message");
+
+let count = 0;
+
+let flash = setInterval(() => {
+    msg.innerHTML = girlfriendName;
+    msg.style.fontSize = (40 + Math.random()*60) + "px";
+
+    count++;
+
+    if(count >= 25){
+        clearInterval(flash);
+
+        msg.innerHTML =
+        "🎂 HAPPY BIRTHDAY 🎂<br><br>" +
+        girlfriendName +
+        "<br><br>❤️ I LOVE YOU ❤️";
+
+        msg.style.fontSize = "55px";
+    }
+},200);
+
+function createHeart(){
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (20 + Math.random()*30) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
