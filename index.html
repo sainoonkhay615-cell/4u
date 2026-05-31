@@ -1,97 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
+<title>Sorry Babe</title>
 
 <style>
 body{
     margin:0;
+    background:linear-gradient(to bottom,#ffb6c1,#ffc0cb);
     overflow:hidden;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
     font-family:Arial,sans-serif;
+}
+
+.box{
+    background:white;
+    padding:30px;
+    border-radius:20px;
     text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+    z-index:10;
 }
 
-#message{
-    color:white;
-    font-size:60px;
-    font-weight:bold;
-    text-shadow:0 0 20px rgba(255,255,255,.8);
+.message{
+    font-size:24px;
+    color:#ff4081;
+    animation:pulse 1s infinite;
 }
 
-.heart{
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+.sad{
     position:absolute;
-    color:red;
-    font-size:25px;
-    animation:float 6s linear infinite;
+    top:-50px;
+    font-size:30px;
+    animation:fall linear infinite;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
+@keyframes fall{
     to{
-        transform:translateY(-100px);
-        opacity:0;
+        transform:translateY(110vh);
     }
 }
 </style>
 </head>
+
 <body>
 
-<div id="message"></div>
+<div class="box">
+    <h1>🥺 Sorry 🥺</h1>
+
+    <div class="message">
+        "သား" ရေ စိတ်ဆိုးနေတာလား 🥺<br><br>
+
+        ကို မအားလို့ပါကွာ 😔<br>
+        သားကို လျစ်လျူမရှုထားတာ မဟုတ်ဘူးနော် 💖<br><br>
+
+        စိတ်ဆိုးပြေနော် 🥹<br>
+        ကို့ကို ပြန်စကားပြောပေးပါ ❤️
+    </div>
+</div>
 
 <script>
+for(let i=0;i<50;i++){
+    let sad=document.createElement("div");
+    sad.innerHTML="😢";
+    sad.classList.add("sad");
 
-const girlfriendName = "Theint TShin Zar Win";
-const msg = document.getElementById("message");
+    sad.style.left=Math.random()*100+"vw";
+    sad.style.animationDuration=(3+Math.random()*5)+"s";
 
-let count = 0;
-
-let flash = setInterval(() => {
-    msg.innerHTML = girlfriendName;
-    msg.style.fontSize = (40 + Math.random()*60) + "px";
-
-    count++;
-
-    if(count >= 25){
-        clearInterval(flash);
-
-        msg.innerHTML =
-        "🎂 HAPPY BIRTHDAY 🎂<br><br>" +
-        girlfriendName +
-        "<br><br>❤️ I LOVE YOU ❤️";
-
-        msg.style.fontSize = "55px";
-    }
-},200);
-
-function createHeart(){
-    const heart = document.createElement("div");
-
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (20 + Math.random()*30) + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },6000);
+    document.body.appendChild(sad);
 }
-
-setInterval(createHeart,300);
-
 </script>
 
 </body>
-</html>
+</html>v
